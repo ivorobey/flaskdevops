@@ -1,0 +1,12 @@
+[all:children]
+webservers
+
+[webservers:children]
+linux
+
+[linux:children]
+ubuntu
+
+[ubuntu]
+ubuntu1 ansible_host=ec2-34-222-122-46.us-west-2.compute.amazonaws.com ansible_port=22 ansible_user=ubuntu ansible_ssh_private_key_file=k.pem
+

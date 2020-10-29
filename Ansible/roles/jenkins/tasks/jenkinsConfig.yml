@@ -1,0 +1,45 @@
+---
+ - name: Creates Jenkins log directory
+   file:
+     path: /var/log/nginx/jenkins
+     state: directory
+   tags:
+     - deploy
+     - config_jenkins
+
+ - name: Copy jenkins log
+   copy:
+     src: "{{ role_path }}/files/jenkins.log"
+     dest: /var/log/nginx/jenkins/access.log
+     mode: 0644
+   tags:
+     - deploy
+     - config_jenkins
+ - name: Copy jenkins config
+   copy:
+     src: "{{ role_path }}/files/config.xml"
+     dest: /var/lib/jenkins/config.xml
+     mode: 0644
+   tags:
+     - deploy
+     - config_jenkins
+ - name: Copy groovy script
+   copy:
+     src: "{{ role_path }}/files/groovy"
+     dest: /var/lib/jenkins/init.groovy.d/
+     mode: 0644
+   tags:
+     - deploy
+     - config_jenkins
+
+ - name: Jenkins - configure | Turn off Jenkins setup wizard
+   lineinfile: dest=/etc/default/jenkins regexp='^JENKINS_JAVA_OPTIONS=' line='JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false"'
+   notify: Restart {{packageLog}}
+   tags:
+     - deploy
+     - config_jenkins
+
+ - name: Restart {{packageLog}}
+   service: name={{packageName}} state=restarted
+   tags:
+     - deploy
