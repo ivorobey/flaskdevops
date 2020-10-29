@@ -1,9 +1,6 @@
-withCredentials([sshUserPrivateKey(credentialsId: '215c0426-5204-426e-8a8a-49209334fb91', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
-    // some block
-}
 
-node {
-  sshagent (credentials: ['215c0426-5204-426e-8a8a-49209334fb91']) {
+node (){
+  stage ("CHECKOUT") {
         sh 'scp ./app/ ubuntu@ec2-53-187-240-52.us-west-2.compute.amazonaws.com:~/app/'
         sh 'ssh ubuntu@ec2-53-187-240-52.us-west-2.compute.amazonaws.com uname -a'
   }
