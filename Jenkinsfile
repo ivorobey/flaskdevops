@@ -1,7 +1,9 @@
 
 node (){
   stage ("CHECKOUT") {
-        sh 'scp ./app/ ubuntu@ec2-53-187-240-52.us-west-2.compute.amazonaws.com:~/app/'
+        sh "rm -rf flaskdevops/"
+        sh "git clone ${REPO_URL}"
+        sh 'scp flaskdevops/app/ ubuntu@ec2-53-187-240-52.us-west-2.compute.amazonaws.com:~/app/'
         sh 'ssh ubuntu@ec2-53-187-240-52.us-west-2.compute.amazonaws.com uname -a'
   }
 }
