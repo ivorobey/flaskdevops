@@ -1,34 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@ivorobey 
-buldozer231
-/
-spring-boot
-forked from spring-projects/spring-boot
-0
-031.8k
-Code
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-spring-boot/Jenkinsfile
-@buldozer231
-buldozer231 test
-Latest commit 84cddce on 1 Dec 2019
- History
- 1 contributor
-63 lines (56 sloc)  2.01 KB
-  
-
 def REPO_URL = "https://github.com/buldozer231/spring-boot/"
 def POM_PATH = "spring-boot/spring-boot-tests/spring-boot-smoke-tests/spring-boot-smoke-test-web-ui/pom.xml"
 def BUILD_VERSION = '1.0.'+env.BUILD_NUMBER
@@ -91,15 +60,3 @@ node () {
     }
 
 }
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
