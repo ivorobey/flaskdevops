@@ -1,4 +1,5 @@
 
+def REPO_URL = "https://github.com/ivorobey/flaskdevops"
 node (){
   stage ("CHECKOUT") {
         sh "rm -rf flaskdevops/"
