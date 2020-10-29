@@ -1,5 +1,5 @@
 node () {
     stage ("CHECKOUT") {
-        sh "Hello"
+        sh "echo Hello"
     }
 }
