@@ -5,7 +5,9 @@ node (){
         sh "rm -rf flaskdevops/"
         sh "git clone ${REPO_URL}"
         sh '''
-        sudo rsync  -e "ssh -i /root/.ssh/id_rsa" -r flaskdevops/app/ ubuntu@ec2-54-187-240-52.us-west-2.compute.amazonaws.com:/opt/app
+        sudo -i
+        cd /var/lib/jenkins/workspace/VorobeyWorking
+        rsync  -e "ssh -i /root/.ssh/id_rsa" -r flaskdevops/app/ ubuntu@ec2-54-187-240-52.us-west-2.compute.amazonaws.com:/opt/app
         '''
         sh 'ssh ubuntu@ec2-54-187-240-52.us-west-2.compute.amazonaws.com uname -a'
   }
