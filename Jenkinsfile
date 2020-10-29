@@ -1,9 +1,5 @@
-pipeline {
-    stages {
-        stage('build') {
-            steps {
-                sh 'echo Hello'
-            }
-        }
+node () {
+    stage ("CHECKOUT") {
+        sh "Hello"
     }
 }
