@@ -1,1 +1,1 @@
-flaskaaplication(crud) its app folder
+FLASKapplication(CRUD) its app folder
